@@ -89,7 +89,7 @@ def unnerdle():
     guess_number = 0
 
     # Iterate for six attempts
-    while guess_number < 5:
+    while guess_number < 6:
 
         # Enter guess
         if len(potential_equations) > 0:
@@ -109,12 +109,14 @@ def unnerdle():
 
         # Trim down potential solutions
         potential_equations = trim_list_of_guesses(potential_equations, equation, evaluation)
+        if equation in potential_equations:
+            potential_equations.remove(equation)
 
         # Increment guess number
         guess_number = guess_number + 1
 
     # Admit failure
-    if guess_number == 5:
+    if guess_number == 6:
         print("Could not guess in six attempts!")
 
 if __name__ == '__main__':
