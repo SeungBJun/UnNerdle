@@ -14,7 +14,7 @@ browser = webdriver.Chrome(service=ser, options=op)
 def enter_guess(equation):
     for character in equation:
         if character.isnumeric():
-            input_el = browser.find_elements(By.XPATH, "//div[text()='" + character + "']")
+            input_el = browser.find_elements(By.XPATH, "//button[text()='" + character + "']")
             input_el[len(input_el) - 1].click()
         else:
             if character == "+":
